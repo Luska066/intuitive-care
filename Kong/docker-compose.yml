@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+    kong-db:
+        image: postgres:13-alpine
+        container_name: kong-db
+        restart: on-failure:10
+        networks:
+            - drdindin_sail
+        environment:
+            - POSTGRES_USER=kong
+            - POSTGRES_PASSWORD=drdindin
+            - POSTGRES_DB=kong
+        volumes:
+            -   kong-postgres:/var/lib/postgresql/data
+        healthcheck:
+            test: [ "CMD", "pg_isready" , '-d', "kong" ,  "-U", "kong" ]
+            interval: 5s
+            timeout: 5s
+            retries: 10
+    kong-migration:
+        image: kong/kong-gateway:3.9.0.1
+        container_name: kong-migration
+        networks:
+            - drdindin_sail
+        environment:
+            - KONG_DATABASE=postgres
+            - KONG_PG_HOST=kong-db
+            - KONG_PG_USER=kong
+            - KONG_PG_PASSWORD=drdindin
+            - KONG_PG_DATABASE=kong
+            - KONG_DECLARATIVE_CONFIG=/kong/declarative/kong.yml
+            - KONG_ADMIN_ACCESS_LOG=/dev/stdout
+            - KONG_PROXY_ACCESS_LOG=/dev/stdout
+            - KONG_PROXY_ERROR_LOG=/dev/stderr
+            - KONG_ADMIN_ERROR_LOG=/dev/stderr
+        command: kong migrations bootstrap
+        depends_on:
+            kong-db:
+                condition: service_healthy
+    kong-getway:
+        image:  kong/kong-gateway:3.9.0.1
+        container_name: kong-getway
+        restart: on-failure:10
+        depends_on:
+            -   kong-db
+        environment:
+            - KONG_DATABASE=postgres
+            - KONG_PG_HOST=kong-db
+            - KONG_PG_USER=kong
+            - KONG_PG_PASSWORD=drdindin
+            - KONG_PG_DATABASE=kong
+            - KONG_ADMIN_ACCESS_LOG=/dev/stdout
+            - KONG_PROXY_ACCESS_LOG=/dev/stdout
+            - KONG_PROXY_ERROR_LOG=/dev/stderr
+            - KONG_ADMIN_ERROR_LOG=/dev/stderr
+            - KONG_ADMIN_LISTEN=0.0.0.0:8001
+            - KONG_DECLARATIVE_CONFIG=/kong/declarative/kong.yml
+            - KONG_ADMIN_GUI_URL=http://localhost:8002/
+        ports:
+            -   "8000:8000"
+            -   "8443:8443"
+            -   "8001:8001"
+            -   "8002:8002"
+            -   "8445:8445"
+            -   "8003:8003"
+            -   "8004:8004"
+        networks:
+            - drdindin_sail
+        volumes:
+            -   ./kong/declarative:/kong/declarative
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+volumes:
+    kong-postgres:
+networks:
+    drdindin_sail:
+        driver: bridge
+        external: true

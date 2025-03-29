@@ -1,0 +1,23 @@
+CREATE TABLE OPERADORAS(
+    id int primary key auto_increment not null,
+    Registro_ANS varchar(255),
+    CNPJ varchar(255),
+    Razao_Social varchar(1000),
+    Nome_Fantasia varchar(1000),
+    Modalidade varchar(1000),
+    Logradouro varchar(1000),
+    Numero varchar(255),
+    Complemento varchar(255),
+    Bairro varchar(255),
+    Cidade varchar(255),
+    UF varchar(3),
+    CEP varchar(255),
+    DDD varchar(3),
+    Telefone varchar(20),
+    Fax varchar(255),
+    Endereco_eletronico varchar(255),
+    Representante varchar(300),
+    Cargo_Representante varchar(255),
+    Regiao_de_Comercializacao varchar(255),
+    Data_Registro_ANS date
+)

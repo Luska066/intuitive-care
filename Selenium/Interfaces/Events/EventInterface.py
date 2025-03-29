@@ -1,11 +1,5 @@
-from abc import ABC,abstractmethod
-
-from Selenium.Interfaces.ExecuteScrapping import ExecuteScrapping
-
+from abc import ABC, abstractmethod
 
 class EventInterface(ABC):
-    event: ExecuteScrapping = None
-
-    def __init__(self):
-        self.event = ExecuteScrapping()
-
+    @abstractmethod
+    def run(self): pass

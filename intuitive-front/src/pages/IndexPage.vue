@@ -1,0 +1,400 @@
+<template>
+  <q-page class="q-pa-lg">
+    <div class="text-h3 q-mb-none text-bold q-mb-sm flex items-center">
+      Contabilidade
+      <q-icon name="calculate" color="purple-5" class="q-ml-md"></q-icon>
+    </div>
+    <q-breadcrumbs class="q-mb-lg">
+      <q-breadcrumbs-el label="Inicio" class="text-h6" icon="home"/>
+      <q-breadcrumbs-el label="Contabilidade" class="text-h6" icon="calculate"/>
+    </q-breadcrumbs>
+    <q-table
+      flat bordered
+      title="Contabilidade"
+      :rows="rows"
+      style="width: 100%"
+      :columns="columns"
+      row-key="index"
+      virtual-scroll
+      v-model:pagination="pagination"
+    >
+      <template v-slot:body-cell-acao="props">
+        <q-td>
+          <q-btn
+            color="purple-5"
+            rounded
+            label="Visualizar"
+            @click="visualizarOperadora(props.row)"
+            icon="visibility"
+          >
+            <q-tooltip style="font-size: 15px">
+              Visualizar
+            </q-tooltip>
+          </q-btn>
+        </q-td>
+      </template>
+    </q-table>
+    <q-dialog v-model="visibility">
+      <q-card style="width: 100%; max-width: 1000px">
+        <q-card-section>
+          <header class="row justify-between items-center q-px-md q-py-sm q-mb-sm ">
+            <div class="text-h4 text-bold ">
+              Visualizar Operadora
+            </div>
+            <q-btn
+              outline
+              rounded
+              @click="this.visibility = !this.visibility"
+              padding="sm"
+              label="fechar"
+              color="blue-10"
+              icon="clear"
+            />
+          </header>
+          <q-separator/>
+          <div class="row q-gutter-md q-mt-sm q-mb-md">
+            <q-input
+              v-model="selectedRow.Registro_ANS"
+              label="Registro ANS"
+              class="col-12 col-sm-12 col-lg"
+              outlined
+            >
+              <template v-slot:label>
+                <div>
+                  <q-icon name="wallet"/>
+                  Registro ANS
+                </div>
+              </template>
+            </q-input>
+            <q-input
+              v-model="selectedRow.Data_Registro_ANS"
+              outlined
+              class="col-12 col-sm-12 col-lg"
+              label="Data Registro ANS"
+            >
+              <template v-slot:label>
+                <div>
+                  <q-icon name="calendar_month"/>
+                  Data Registro ANS
+                </div>
+              </template>
+            </q-input>
+          </div>
+          <q-input
+            v-model="selectedRow.CNPJ"
+            outlined
+            label="CNPJ"
+            class="q-mb-md"
+          >
+            <template v-slot:label>
+              <div>
+                <q-icon name="domain"/>
+                CNPJ
+              </div>
+            </template>
+          </q-input>
+          <q-input
+            v-model="selectedRow.Nome_Fantasia"
+            outlined
+            label="Nome Fantasia"
+            class="q-mb-md"
+          >
+            <template v-slot:label>
+              <div>
+                <q-icon name="domain"/>
+                Nome Fantasia
+              </div>
+            </template>
+          </q-input>
+          <q-input
+            v-model="selectedRow.Razao_Social"
+            outlined
+            class="q-mb-md"
+            label="Razão Social"
+          >
+            <template v-slot:label>
+              <div>
+                <q-icon name="domain"/>
+                Razão Social
+              </div>
+            </template>
+          </q-input>
+          <q-input
+            v-model="selectedRow.Endereco_eletronico"
+            outlined
+            class="q-mb-md"
+            label="Endereço Eletrônico"
+          >
+            <template v-slot:label>
+              <div>
+                <q-icon name="mail"/>
+                Endereço Eletrônico
+              </div>
+            </template>
+          </q-input>
+          <q-input
+            v-model="selectedRow.Modalidade"
+            outlined
+            class="q-mb-md"
+            label="Modalidade"
+          >
+            <template v-slot:label>
+              <div>
+                <q-icon name="settings"/>
+                Modalidade
+              </div>
+            </template>
+          </q-input>
+          <div class="text-bold text-h5 q-mb-md">
+            Representante:
+          </div>
+          <q-input
+            v-model="selectedRow.Representante"
+            outlined
+            class="q-mb-md"
+            label="Representante"
+          >
+            <template v-slot:label>
+              <div>
+                <q-icon name="person"/>
+                Representante
+              </div>
+            </template>
+          </q-input>
+          <q-input
+            v-model="selectedRow.Cargo_Representante"
+            outlined
+            class="q-mb-md"
+            label="Cargo Representante"
+          >
+            <template v-slot:label>
+              <div>
+                <q-icon name="work"/>
+                Cargo Representante
+              </div>
+            </template>
+          </q-input>
+          <div class="text-bold text-h5 q-mb-md">
+            Dados de Contato:
+          </div>
+          <div class="row">
+            <q-input
+              v-model="selectedRow.DDD"
+              outlined
+              label="DDD"
+              class="col-12 col-md-2 q-mb-md"
+              mask="###"
+            >
+              <template v-slot:label>
+                <div>
+                  <q-icon name="contacts"/>
+                  DDD
+                </div>
+              </template>
+            </q-input>
+            <q-input
+              v-model="selectedRow.Telefone"
+              outlined
+              label="Telefone"
+              class="col-12 col-md q-mb-md"
+            >
+              <template v-slot:label>
+                <div>
+                  <q-icon name="phone"/>
+                  Telefone
+                </div>
+              </template>
+            </q-input>
+          </div>
+          <q-input
+            v-model="selectedRow.Fax"
+            outlined
+            label="Fax"
+            class="q-mb-md"
+          >
+            <template v-slot:label>
+              <div>
+                <q-icon name="fax"/>
+                Fax
+              </div>
+            </template>
+          </q-input>
+          <div class="text-bold text-h5 q-mb-md">
+            Dados de Endereço:
+          </div>
+          <q-input
+            v-model="selectedRow.CEP"
+            outlined
+            label="CEP"
+            mask="#####-###"
+            class="q-mb-md"
+          >
+            <template v-slot:label>
+              <div>
+                <q-icon name="public"/>
+                CEP
+              </div>
+            </template>
+          </q-input>
+
+          <q-input
+            v-model="selectedRow.Regiao_de_Comercializacao"
+            outlined
+            class="q-mb-md"
+            label="Região de Comercialização"
+          >
+            <template v-slot:label>
+              <div>
+                <q-icon name="south_america"/>
+                Região de Comercialização
+              </div>
+            </template>
+          </q-input>
+          <q-input
+            outlined
+            v-model="selectedRow.UF"
+            class="q-mb-md"
+            label="UF"
+          >
+            <template v-slot:label>
+              <div>
+                <q-icon name="location_on"/>
+                UF ( Estado )
+              </div>
+            </template>
+          </q-input>
+          <q-input
+            v-model="selectedRow.Cidade"
+            outlined
+            class="q-mb-md"
+            label="Cidade"
+          >
+            <template v-slot:label>
+              <div>
+                <q-icon name="location_on"/>
+                Cidade
+              </div>
+            </template>
+          </q-input>
+          <q-input
+            v-model="selectedRow.Bairro"
+            outlined
+            class="q-mb-md"
+            label="Bairro"
+          >
+            <template v-slot:label>
+              <div>
+                <q-icon name="location_on"/>
+                Bairro
+              </div>
+            </template>
+          </q-input>
+          <q-input
+            v-model="selectedRow.Logradouro"
+            outlined
+            class="q-mb-md"
+            label="Logradouro"
+          >
+            <template v-slot:label>
+              <div>
+                <q-icon name="location_on"/>
+                Logradouro
+              </div>
+            </template>
+          </q-input>
+
+          <q-input
+            v-model="selectedRow.Numero"
+            class="q-mb-md"
+            outlined
+            label="Número"
+          >
+            <template v-slot:label>
+              <div>
+                <q-icon name="location_on"/>
+                Número
+              </div>
+            </template>
+          </q-input>
+
+          <q-input
+            v-model="selectedRow.Complemento"
+            outlined
+            class="q-mb-md"
+            label="Complemento"
+          >
+            <template v-slot:label>
+              <div>
+                <q-icon name="location_on"/>
+                Complemento
+              </div>
+            </template>
+          </q-input>
+        </q-card-section>
+      </q-card>
+    </q-dialog>
+  </q-page>
+</template>
+
+<script>
+import {defineComponent, ref} from 'vue';
+import {api} from '../boot/axios.js'
+
+export default defineComponent({
+  name: 'IndexPage',
+  async mounted() {
+    const {data} = await api.get('/contabilidade')
+    this.rows = data
+  },
+  data() {
+    return {
+      visibility: false,
+      selectedRow: {
+        "Nome_Fantasia": "",
+        "CEP": "",
+        "Regiao_de_Comercializacao": "",
+        "Modalidade": "",
+        "DDD": "",
+        "Data_Registro_ANS": "",
+        "Logradouro": "",
+        "Telefone": "",
+        "Numero": "",
+        "Fax": null,
+        "Registro_ANS": "",
+        "Complemento": null,
+        "Endereco_eletronico": "",
+        "Bairro": "",
+        "Representante": "",
+        "CNPJ": "",
+        "Cidade": "",
+        "Cargo_Representante": "",
+        "Razao_Social": "",
+        "UF": ""
+      },
+      rows: [],
+      columns: [
+        {name: 'Registro ANS', label: 'Registro ANS', field: 'Registro_ANS', sortable: true, align: 'left'},
+        {name: 'CNPJ', label: 'CNPJ', field: 'CNPJ', sortable: true, align: 'left'},
+        {name: 'Razao_Social', label: 'Razão Social', field: 'Razao_Social', align: 'left'},
+        {name: 'Nome_Fantasia', label: 'Nome_Fantasia', field: (row) => row.Nome_Fantasia ?? 'Nulo', align: 'left'},
+        {name: 'acao', label: 'Ações', field: (row) => row, align: 'left'}
+      ],
+    }
+  },
+  setup() {
+    return {
+      pagination: ref({
+        rowsPerPage: 10
+      })
+    }
+  },
+  methods: {
+    visualizarOperadora(row) {
+      this.visibility = !this.visibility
+      this.selectedRow = {
+        ...row
+      }
+    }
+  }
+});
+</script>

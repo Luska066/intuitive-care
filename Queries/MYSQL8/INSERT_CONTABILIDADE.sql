@@ -1,0 +1,7 @@
+LOAD DATA INFILE '../../Selenium/Downloads/PDF/ActiveOperators/Relatorio_cadop.csv';
+
+INTO TABLE OPERADORAS
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;

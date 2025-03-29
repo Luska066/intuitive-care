@@ -1,0 +1,9 @@
+SQLAlchemy~=2.0.40
+fastapi~=0.115.12
+python-dotenv~=1.1.0
+selenium~=4.30.0
+mysql-connector-python~=9.2.0
+requests~=2.32.3
+tabula-py~=2.10.0
+exceptiongroup~=1.2.2
+webdriver-manager~=4.0.2

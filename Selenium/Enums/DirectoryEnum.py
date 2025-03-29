@@ -3,5 +3,6 @@ import os
 from enum import Enum
 
 class DirectoryEnum(Enum):
-    ZIP = os.getcwd()+'/Downloads/ZIP'
-    PDF = os.getcwd()+'/Downloads/PDF'
+    PDF = os.getcwd()+'/Selenium/Downloads/PDF'
+    CSV = os.getcwd()+'/Selenium/Archives/CSV'
+    ZIP = os.getcwd()+'/Selenium/Archives/ZIP'

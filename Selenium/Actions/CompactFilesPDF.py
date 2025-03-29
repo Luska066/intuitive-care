@@ -4,7 +4,7 @@ import zipfile
 from Selenium.Enums.DirectoryEnum import DirectoryEnum
 from Selenium.Interfaces.ExecuteScrapping import ExecuteScrapping
 
-class CompactFile(ExecuteScrapping):
+class CompactFilesPDF(ExecuteScrapping):
     file_name = DirectoryEnum.ZIP.value+'/Teste_lucas.zip'
     def execute(self):
         print("Compactando Arquivos...")

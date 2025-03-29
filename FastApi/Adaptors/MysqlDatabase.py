@@ -14,8 +14,8 @@ db_config = {
 }
 
 DATABASE_URL = ("mysql+mysqlconnector://"
-                + db_config.get("host") +
-                ":" + db_config.get("user") +
+                + db_config.get("user") +
+                ":" + db_config.get("password") +
                 "@" + db_config.get("host")
                 + ":" + db_config.get("port")
                 + "/" + db_config.get("database"))

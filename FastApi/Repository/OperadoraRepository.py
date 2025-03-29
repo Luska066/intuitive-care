@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from FastApi.Models.Operadora import Operadora
+from ..Models.Operadora import Operadora
 
 class OperadoraRepository:
 

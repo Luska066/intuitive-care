@@ -4,55 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="233b0404-0421-4228-958c-176d4484fe34" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/IntuitiveCare.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Adaptors/Mysql.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DatabasePrompt.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DeployQuasar.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FastApi/Adaptors/MysqlDatabase.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FastApi/Adaptors/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FastApi/FastApi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FastApi/Models/Operadora.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FastApi/Models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FastApi/Repository/OperadoraRepository.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FastApi/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kong/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kong/kong/declarative/kong.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MainPrompt.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Queries/Boostrap/BootstrapDataBase.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Queries/MYSQL8/CREATE_TABLE_CONTABILIDADE.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Queries/MYSQL8/CREATE_TABLE_OPERADORAS.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Queries/MYSQL8/INSERT_CONTABILIDADE.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Queries/MYSQL8/INSERT_OPERADORAS.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Selenium/Actions/CompactFilesPDF.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Selenium/Actions/DownloadAccountingDemonstrationEvent.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Selenium/Actions/DownloadActiveOperators.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Selenium/Actions/DownloadAnexos.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Selenium/Actions/ExtractPdfToCsv.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Selenium/Enums/DirectoryEnum.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Selenium/Enums/WebDriversEnum.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Selenium/Factory/SeleniumFactory.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Selenium/Interfaces/Events/DispatcherInterface.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Selenium/Interfaces/Events/EventInterface.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Selenium/Interfaces/Events/HandlerInterface.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Selenium/Interfaces/ExecuteScrapping.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Selenium/Services/Dispatcher.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Selenium/Services/Events/EventClass.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Selenium/Services/Events/WebScrapping/ScrappingAccountDemonstration.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Selenium/Services/Events/WebScrapping/ScrappingActiveOperators.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Selenium/Services/Events/WebScrapping/ScrappingEvent.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Selenium/Services/Handler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my.cnf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-    </list>
+    <list default="true" id="233b0404-0421-4228-958c-176d4484fe34" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -217,7 +169,7 @@
       <workItem from="1743009891571" duration="9232000" />
       <workItem from="1743019226078" duration="39700000" />
       <workItem from="1743114146472" duration="339000" />
-      <workItem from="1743253823938" duration="20026000" />
+      <workItem from="1743253823938" duration="20336000" />
     </task>
     <servers />
   </component>

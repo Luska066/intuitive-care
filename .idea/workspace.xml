@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="233b0404-0421-4228-958c-176d4484fe34" name="Changes" comment="" />
+    <list default="true" id="233b0404-0421-4228-958c-176d4484fe34" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/intuitive-front/src/utilities/Masks.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/intuitive-front/src/pages/IndexPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/intuitive-front/src/pages/IndexPage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +21,7 @@
         <option value="SQL File" />
         <option value="Dockerfile" />
         <option value="Python Script" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -41,7 +47,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/lucas/Desktop/IntuitiveCare",
+    "last_opened_file_path": "/home/lucas/Desktop/IntuitiveCare/intuitive-front/src/utilities",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -59,6 +65,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/intuitive-front/src/utilities" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Queries/MYSQL8" />
       <recent name="$PROJECT_DIR$/Selenium/Services/Events/WebScrapping" />
@@ -169,7 +176,7 @@
       <workItem from="1743009891571" duration="9232000" />
       <workItem from="1743019226078" duration="39700000" />
       <workItem from="1743114146472" duration="339000" />
-      <workItem from="1743253823938" duration="20336000" />
+      <workItem from="1743253823938" duration="24328000" />
     </task>
     <servers />
   </component>

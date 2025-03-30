@@ -8,10 +8,86 @@
       <q-breadcrumbs-el label="Inicio" class="text-h6" icon="home"/>
       <q-breadcrumbs-el label="Contabilidade" class="text-h6" icon="calculate"/>
     </q-breadcrumbs>
+    <q-btn
+      class="q-mb-md"
+      icon="tune"
+      label="Filtros"
+      color="purple-9"
+    >
+      <q-tooltip>
+        Filtros
+      </q-tooltip>
+      <q-menu class="q-py-md q-px-sm">
+        <q-input
+          v-model="filter.Registro_ANS"
+          label="Registro ANS"
+          class="col-12 col-sm-12 col-lg q-mb-md"
+          outlined
+        >
+          <template v-slot:label>
+            <div>
+              <q-icon name="wallet"/>
+              Registro ANS
+            </div>
+          </template>
+        </q-input>
+        <q-input
+          v-model="filter.CNPJ"
+          outlined
+          label="CNPJ"
+          class="q-mb-md"
+          mask="##.###.###/####-##"
+        >
+          <template v-slot:label>
+            <div>
+              <q-icon name="domain"/>
+              CNPJ
+            </div>
+          </template>
+        </q-input>
+         <q-input
+          v-model="filter.Nome_Fantasia"
+          outlined
+          class="q-mb-md"
+          label="Nome Fantasia"
+        >
+          <template v-slot:label>
+            <div>
+              <q-icon name="domain"/>
+              Nome Fantaisa
+            </div>
+          </template>
+        </q-input>
+        <q-input
+          v-model="filter.Data_Registro_ANS"
+          outlined
+          class="col-12 col-sm-12 col-lg q-mb-md"
+          label="Data Registro ANS"
+          mask="##/##/####"
+        >
+          <template v-slot:label>
+            <div>
+              <q-icon name="calendar_month"/>
+              Data Registro ANS
+            </div>
+          </template>
+        </q-input>
+      </q-menu>
+    </q-btn>
+    <q-btn
+      class="q-mb-md q-ml-md"
+      icon="clear"
+      label="Limpar Filtros"
+      color="secondary"
+    >
+      <q-tooltip>
+        Filtros
+      </q-tooltip>
+    </q-btn>
     <q-table
       flat bordered
       title="Contabilidade"
-      :rows="rows"
+      :rows="rowsFiltered"
       style="width: 100%"
       :columns="columns"
       row-key="index"
@@ -58,6 +134,7 @@
               label="Registro ANS"
               class="col-12 col-sm-12 col-lg"
               outlined
+              readonly
             >
               <template v-slot:label>
                 <div>
@@ -84,6 +161,7 @@
             v-model="selectedRow.CNPJ"
             outlined
             label="CNPJ"
+            readonly
             class="q-mb-md"
           >
             <template v-slot:label>
@@ -97,6 +175,7 @@
             v-model="selectedRow.Nome_Fantasia"
             outlined
             label="Nome Fantasia"
+            readonly
             class="q-mb-md"
           >
             <template v-slot:label>
@@ -110,6 +189,7 @@
             v-model="selectedRow.Razao_Social"
             outlined
             class="q-mb-md"
+            readonly
             label="Razão Social"
           >
             <template v-slot:label>
@@ -123,6 +203,7 @@
             v-model="selectedRow.Endereco_eletronico"
             outlined
             class="q-mb-md"
+            readonly
             label="Endereço Eletrônico"
           >
             <template v-slot:label>
@@ -136,6 +217,7 @@
             v-model="selectedRow.Modalidade"
             outlined
             class="q-mb-md"
+            readonly
             label="Modalidade"
           >
             <template v-slot:label>
@@ -152,6 +234,7 @@
             v-model="selectedRow.Representante"
             outlined
             class="q-mb-md"
+            readonly
             label="Representante"
           >
             <template v-slot:label>
@@ -165,6 +248,7 @@
             v-model="selectedRow.Cargo_Representante"
             outlined
             class="q-mb-md"
+            readonly
             label="Cargo Representante"
           >
             <template v-slot:label>
@@ -183,6 +267,7 @@
               outlined
               label="DDD"
               class="col-12 col-md-2 q-mb-md"
+              readonly
               mask="###"
             >
               <template v-slot:label>
@@ -196,6 +281,7 @@
               v-model="selectedRow.Telefone"
               outlined
               label="Telefone"
+              readonly
               class="col-12 col-md q-mb-md"
             >
               <template v-slot:label>
@@ -210,6 +296,7 @@
             v-model="selectedRow.Fax"
             outlined
             label="Fax"
+            readonly
             class="q-mb-md"
           >
             <template v-slot:label>
@@ -227,6 +314,7 @@
             outlined
             label="CEP"
             mask="#####-###"
+            readonly
             class="q-mb-md"
           >
             <template v-slot:label>
@@ -241,6 +329,7 @@
             v-model="selectedRow.Regiao_de_Comercializacao"
             outlined
             class="q-mb-md"
+            readonly
             label="Região de Comercialização"
           >
             <template v-slot:label>
@@ -254,6 +343,7 @@
             outlined
             v-model="selectedRow.UF"
             class="q-mb-md"
+            readonly
             label="UF"
           >
             <template v-slot:label>
@@ -267,6 +357,7 @@
             v-model="selectedRow.Cidade"
             outlined
             class="q-mb-md"
+            readonly
             label="Cidade"
           >
             <template v-slot:label>
@@ -280,6 +371,7 @@
             v-model="selectedRow.Bairro"
             outlined
             class="q-mb-md"
+            readonly
             label="Bairro"
           >
             <template v-slot:label>
@@ -293,6 +385,7 @@
             v-model="selectedRow.Logradouro"
             outlined
             class="q-mb-md"
+            readonly
             label="Logradouro"
           >
             <template v-slot:label>
@@ -307,6 +400,7 @@
             v-model="selectedRow.Numero"
             class="q-mb-md"
             outlined
+            readonly
             label="Número"
           >
             <template v-slot:label>
@@ -320,6 +414,7 @@
           <q-input
             v-model="selectedRow.Complemento"
             outlined
+            readonly
             class="q-mb-md"
             label="Complemento"
           >
@@ -339,6 +434,8 @@
 <script>
 import {defineComponent, ref} from 'vue';
 import {api} from '../boot/axios.js'
+import moment from "moment";
+import {Masks} from "src/utilities/Masks.js";
 
 export default defineComponent({
   name: 'IndexPage',
@@ -346,9 +443,33 @@ export default defineComponent({
     const {data} = await api.get('/contabilidade')
     this.rows = data
   },
+  computed: {
+    rowsFiltered() {
+      let rows = this.rows
+      if(this.filter.Registro_ANS){
+        rows = rows.filter((row) => row.Registro_ANS === this.filter.Registro_ANS.trim() )
+      }
+      if(this.filter.CNPJ){
+        rows = rows.filter((row) => row.CNPJ === this.filter.CNPJ.replace(/\D/g,'').trim())
+      }
+      if(this.filter.Data_Registro_ANS){
+        rows = rows.filter((row) => moment(row.Data_Registro_ANS).format('DD/MM/YYYY') === this.filter.Data_Registro_ANS.trim() )
+      }
+      if(this.filter.Nome_Fantasia){
+        rows = rows.filter((row) => row.Nome_Fantasia === this.filter.Nome_Fantasia.trim() )
+      }
+      return rows
+    }
+  },
   data() {
     return {
       visibility: false,
+      filter: {
+        Registro_ANS: '',
+        CNPJ:'',
+        Data_Registro_ANS: '',
+        Nome_Fantasia:''
+      },
       selectedRow: {
         "Nome_Fantasia": "",
         "CEP": "",
@@ -374,7 +495,14 @@ export default defineComponent({
       rows: [],
       columns: [
         {name: 'Registro ANS', label: 'Registro ANS', field: 'Registro_ANS', sortable: true, align: 'left'},
-        {name: 'CNPJ', label: 'CNPJ', field: 'CNPJ', sortable: true, align: 'left'},
+        {
+          name: 'Data Registro ANS',
+          label: 'Data_Registro_ANS',
+          field: (row) => moment(row.Data_Registro_ANS).format('DD/MM/YYYY'),
+          sortable: true,
+          align: 'left'
+        },
+        {name: 'CNPJ', label: 'CNPJ', field: (row) => Masks.CNPJ(row.CNPJ), sortable: true, align: 'left'},
         {name: 'Razao_Social', label: 'Razão Social', field: 'Razao_Social', align: 'left'},
         {name: 'Nome_Fantasia', label: 'Nome_Fantasia', field: (row) => row.Nome_Fantasia ?? 'Nulo', align: 'left'},
         {name: 'acao', label: 'Ações', field: (row) => row, align: 'left'}
@@ -391,8 +519,12 @@ export default defineComponent({
   methods: {
     visualizarOperadora(row) {
       this.visibility = !this.visibility
+      console.log(row);
       this.selectedRow = {
-        ...row
+        ...row,
+        Data_Registro_ANS: moment(row.Data_Registro_ANS).format('DD/MM/YYYY'),
+        CNPJ: Masks.CNPJ(row.CNPJ),
+        Telefone: row.Telefone != null ? Masks.TELEFONEV2(row.Telefone) : ''
       }
     }
   }

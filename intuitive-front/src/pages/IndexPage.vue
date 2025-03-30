@@ -78,10 +78,11 @@
       class="q-mb-md q-ml-md"
       icon="clear"
       label="Limpar Filtros"
+      @click="clearFilters"
       color="secondary"
     >
       <q-tooltip>
-        Filtros
+        Limpar Filtros
       </q-tooltip>
     </q-btn>
     <q-table
@@ -519,6 +520,14 @@ export default defineComponent({
     }
   },
   methods: {
+    clearFilters(){
+      this.filter = {
+        Registro_ANS: '',
+        CNPJ:'',
+        Data_Registro_ANS: '',
+        Nome_Fantasia:''
+      }
+    },
     visualizarOperadora(row) {
       this.visibility = !this.visibility
       console.log(row);

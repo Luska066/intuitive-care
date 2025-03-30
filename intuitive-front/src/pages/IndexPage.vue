@@ -99,10 +99,12 @@
           <q-btn
             color="purple-5"
             rounded
-            label="Visualizar"
             @click="visualizarOperadora(props.row)"
-            icon="visibility"
           >
+            <div>
+              <q-icon name="visibility"/>
+              Visualizar
+            </div>
             <q-tooltip style="font-size: 15px">
               Visualizar
             </q-tooltip>

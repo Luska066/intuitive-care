@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="233b0404-0421-4228-958c-176d4484fe34" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/intuitive-front/src/utilities/Masks.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/intuitive-front/src/pages/IndexPage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/intuitive-front/src/pages/IndexPage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +174,7 @@
       <workItem from="1743009891571" duration="9232000" />
       <workItem from="1743019226078" duration="39700000" />
       <workItem from="1743114146472" duration="339000" />
-      <workItem from="1743253823938" duration="24328000" />
+      <workItem from="1743253823938" duration="25035000" />
     </task>
     <servers />
   </component>

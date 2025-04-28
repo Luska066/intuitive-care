@@ -37,7 +37,7 @@ Lembre-se de estar na pasta raiz
           * Arquivos baixados ficarão em /Selenium/Downloads  
           * Arquivos gerados/convertidos ficarão em  /Selenium/Archives
 
-      $ python.3.10 MainPrompt.py      
+      $ python3.10 MainPrompt.py      
   
     Execute em seguida :
      Esse prompt vai preencher toda a tabela com dados do desafio 3

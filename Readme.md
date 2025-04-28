@@ -55,7 +55,7 @@ Lembre-se de estar na pasta raiz
           - Caso não tenha docker altere no .env as credênciais do DB
 
      terminal
-      $ python.3.10 DatabasePrompt.py
+      $ python3.10 DatabasePrompt.py
       
        Ao executar, um meno aparecerá:
           Selecione uma opção
